@@ -1,0 +1,38 @@
+import time 
+import random
+#Welcome
+#ready, set, go w/ pauses(1sec)
+#choose from list of sentences randomly
+#if mistyped, say try again
+# check for time before typing
+#check to see if they match
+#check for time after typing
+#subtract before from after
+#show time taken to type
+Susie = "I saw Susie sitting in a shoe shine shop"
+Bill = "Bill broke baseball bats before bawling"
+Charlie = "Charlie cried over cookies"
+sentences = [Susie, Bill, Charlie]
+welcome = input("Welcome to type racer. Press enter to play.")
+print("ready...")
+time.sleep(1)
+print("set...")
+time.sleep(1)
+print("type!")
+sentencechoice = (sentences[random.randint(0,len(sentences)-1)])
+print(sentencechoice)
+timebefore = time.time()
+user = input()
+
+
+while user != sentencechoice:
+  print("Incorrect. try again")
+  user = input()
+
+timeafter = time.time()
+
+timetaken = int(timeafter) - int(timebefore)
+print("you finished typing in " +str(timetaken) + " seconds")
+wps = len(sentencechoice.split()) / timetaken
+wpm = wps * 60
+print("WPM: " + str(wpm))
